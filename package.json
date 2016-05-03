@@ -1,7 +1,7 @@
 {
   "name": "pkg-entry",
   "version": "0.0.0",
-  "description": "expose `jsnext:main`, `main` from object, defaults to `index.js`",
+  "description": "expose `jsnext:main` or `main` properties from object, defaults to `index.js`",
   "main": "index.es5.js",
   "jsnext:main": "index.js",
   "files": [

@@ -6,7 +6,7 @@
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 
-> expose `jsnext:main`, `main` from object, defaults to `index.js`
+> expose `jsnext:main` or `main` properties from object, defaults to `index.js`
 
 ## Install
 
@@ -15,11 +15,10 @@
 ## Usage
 
 ```js
-import { pkgEntry, pkgEntryAsync } from 'pkg-entry';
+import pkgEntry from 'pkg-entry';
 
 pkgEntry('unicorns'); // unicorns
-pkgEntryAsync('unicorns')
-  .then(result => console.log(result)); // unicorns
+
 ```
 
 ## API
