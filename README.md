@@ -17,33 +17,26 @@
 ```js
 import pkgEntry from 'pkg-entry';
 
-pkgEntry('unicorns'); // unicorns
+const main = { main: './main.js' };
+pkgEntry(main); // ./main.js
 
+const jsnext = { 'jsnext:main': './jsnext.js', main: './jsnext.es5.js' };
+pkgEntry(jsnext); // ./jsnext.js
+
+const defaults = {};
+pkgEntry(defaults); // index.js
 ```
 
 ## API
 
-### pkgEntry(input, [options])
+### pkgEntry(pkg)
 
-### pkgEntryAsync(input, [options])
-
-Return a promise that resolves to `result`.
-
-#### input
+#### pkg
 
 *Required*  
-Type: `String`
+Type: `Object`
 
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `Boolean`  
-Default: `false`
-
-Lorem ipsum.
+JSON from `package.json`.
 
 ## License
 
