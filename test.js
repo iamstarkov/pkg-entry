@@ -1,18 +1,13 @@
 import test from 'ava';
-import { pkgMain, pkgMainAsync } from './index';
+import pkgEntry from './index';
 
-test('basic', t => t.is(
-  pkgMain('unicorns'),
-  'unicorns'
-));
+const main = { main: './main.js' };
+const jsnext = { 'jsnext:main': './jsnext.js', main: './jsnext.es5.js' };
+const defaults = {};
 
-test('empty input', t => t.throws(() => { pkgMain(); }, TypeError));
-test('invalid input', t => t.throws(() => { pkgMain(2); }, TypeError));
+test('main', t => t.is(pkgEntry(main), './main.js'));
+test('jsnext', t => t.is(pkgEntry(jsnext), './jsnext.js'));
+test('defaults', t => t.is(pkgEntry(defaults), 'index.js'));
 
-test('async :: basic', async t => t.is(
-  await pkgMainAsync('unicorns'),
-  'unicorns'
-));
-
-test('async :: empty input', t => t.throws(pkgMainAsync(), TypeError));
-test('async :: invalid input', t => t.throws(pkgMainAsync(2), TypeError));
+test('empty input', t => t.throws(() => { pkgEntry(); }, TypeError));
+test('invalid input', t => t.throws(() => { pkgEntry(2); }, TypeError));
