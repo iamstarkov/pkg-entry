@@ -60,6 +60,6 @@
     "rimraf": "^2.5.2"
   },
   "dependencies": {
-    "neat-contract": "^1.0.0"
+    "neat-contract": "^1.0.1"
   }
 }
